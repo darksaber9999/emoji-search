@@ -1,7 +1,7 @@
 function Header() {
   return (
-    <div>
-
+    <div className="searchHeader">
+      <h2>Emoji Search</h2>
     </div>
   );
 }
