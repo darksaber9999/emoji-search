@@ -12,10 +12,23 @@ class App extends React.Component {
     };
   }
 
+  searchKeywords = (value) => {
+    const emojiRowList = document.getElementsByClassName('emojiRow');
+
+    for (let id in emojiRowList) {
+      emojiRowList[id].classList.remove('invisible');
+
+      if (!emojiRowList[id].attributes.keywords.value.includes(value)) {
+        emojiRowList[id].classList.add('invisible');
+      }
+    }
+  }
+
   handleInputData = (name, value) => {
     this.setState((prevState) => ({
       [name]: value,
-    }))
+    }));
+    this.searchKeywords(value);
   }
 
   render() {
