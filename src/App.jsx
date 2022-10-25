@@ -18,7 +18,7 @@ class App extends React.Component {
     for (let id in emojiRowList) {
       emojiRowList[id].classList.remove('invisible');
 
-      if (!emojiRowList[id].attributes.keywords.value.includes(value)) {
+      if (!emojiRowList[id].attributes.keywords.value.includes(value.toLowerCase())) {
         emojiRowList[id].classList.add('invisible');
       }
     }
