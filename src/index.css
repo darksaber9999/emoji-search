@@ -8,6 +8,11 @@ body {
   text-align: center;
 }
 
+.app {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
 .emojiSearch input {
   width: 70%;
   font-size: 24px;
@@ -21,6 +26,10 @@ body {
 .emojiRow {
   margin: 5px 0;
   font-size: 36px;
+}
+
+.emojiRow:hover {
+  background-color: aqua;
 }
 
 .emojiRow span {
