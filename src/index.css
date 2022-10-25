@@ -7,3 +7,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
+.emojiSearch input {
+  width: 70%;
+  font-size: 24px;
+  padding: 6px 16px;
+}
+
+.emojiResults {
+  margin: 20px 0;
+}
+
+.emojiRow {
+  margin: 5px 0;
+  font-size: 36px;
+}
+
+.emojiRow span {
+  margin: 0 10px;
+}
