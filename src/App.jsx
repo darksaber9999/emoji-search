@@ -12,15 +12,28 @@ class App extends React.Component {
     };
   }
 
+  getEmojiRowList = () => document.getElementsByClassName('emojiRow');
+
+  checkForMaxRows = () => {
+    const emojiRowList = this.getEmojiRowList();
+
+    for (let id in emojiRowList) {
+      if (id > 19) {
+        emojiRowList[id].classList.add('invisible');
+      }
+    }
+  }
+
   searchKeywords = (value) => {
-    const emojiRowList = document.getElementsByClassName('emojiRow');
+    const emojiRowList = this.getEmojiRowList();
+    let count = 0;
 
     for (let id in emojiRowList) {
       emojiRowList[id].classList.remove('invisible');
 
-      if (!emojiRowList[id].attributes.keywords.value.includes(value.toLowerCase())) {
+      (emojiRowList[id].attributes.keywords.value.includes(value.toLowerCase()) && count < 20) ?
+        count++ :
         emojiRowList[id].classList.add('invisible');
-      }
     }
   }
 
@@ -29,6 +42,10 @@ class App extends React.Component {
       [name]: value,
     }));
     this.searchKeywords(value);
+  }
+
+  componentDidMount() {
+    this.checkForMaxRows();
   }
 
   render() {
