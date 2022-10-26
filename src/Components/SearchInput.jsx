@@ -12,6 +12,7 @@ function SearchInput(props) {
           name="searchValue"
           value={props.value}
           onChange={handleInputData}
+          placeholder={'Enter search keyword'}
         />
       </label>
     </div>
