@@ -7,7 +7,12 @@ function EmojiRow(props) {
       console.log("API not available");
       return
     }
-    const copiedEmoji = event.target.children[0].innerHTML;
+    const copiedEmoji =
+      (event.target.id === 'row') ?
+        event.target.children[0].innerHTML :
+        (event.target.id === 'symbol') ?
+          event.target.innerHTML :
+          event.target.previousElementSibling.innerHTML;
     try {
       await navigator.clipboard.writeText(copiedEmoji)
     } catch (err) {
@@ -16,9 +21,9 @@ function EmojiRow(props) {
   }
 
   return (
-    <div className="emojiRow" keywords={keywords} onClick={copyToClipboard}>
-      <span>{symbol}</span>
-      <span>{title}</span>
+    <div id="row" className="emojiRow" keywords={keywords} onClick={copyToClipboard}>
+      <span id="symbol">{symbol}</span>
+      <span id="text">{title}</span>
     </div>
   );
 }
