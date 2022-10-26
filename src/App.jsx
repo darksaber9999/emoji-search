@@ -52,7 +52,10 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header />
-        <SearchInput value={this.state.searchValue} handleInputData={this.handleInputData} />
+        <SearchInput
+          value={this.state.searchValue}
+          handleInputData={this.handleInputData}
+        />
         <EmojiResults emojiList={emojiList} />
       </div>
     );
