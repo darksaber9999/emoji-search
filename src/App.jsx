@@ -31,7 +31,10 @@ class App extends React.Component {
     for (let id in emojiRowList) {
       emojiRowList[id].classList.remove('invisible');
 
-      (emojiRowList[id].attributes.keywords.value.includes(value.toLowerCase()) && count < 20) ?
+      ((emojiRowList[id].attributes.keywords.value.includes(value.toLowerCase()) ||
+        emojiRowList[id].children[0].innerHTML.includes(value) ||
+        emojiRowList[id].children[1].innerHTML.includes(value.toLowerCase())) &&
+        count < 20) ?
         count++ :
         emojiRowList[id].classList.add('invisible');
     }
